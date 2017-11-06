@@ -1,3 +1,5 @@
+More in-depth guide to building the webapp on https://cloud.google.com/solutions/using-firebase-real-time-events-app-engine
+
 # Tic Tac Toe, using Firebase, on App Engine Standard
 
 This sample shows how to use the [Firebase](https://firebase.google.com/)
