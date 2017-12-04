@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-More in-depth guide to building the webapp on https://cloud.google.com/solutions/using-firebase-real-time-events-app-engine
-
-# Tic Tac Toe, using Firebase, on App Engine Standard
-
-This sample shows how to use the [Firebase](https://firebase.google.com/)
-realtime database to implement a simple Tic Tac Toe game on [Google App Engine
-Standard](https://cloud.google.com/appengine).
-=======
 # Ghost Game, using Flask and Firebase, on App Engine
-___
 
 ## The Game
 A party game for 6 to 10 players. (To be played in person! This application merely facilitates the game.)
@@ -36,7 +26,6 @@ After submitting the information, players will enter a lobby while waiting for s
 Once the game begins, the players themselves will have to regulate the flow of the game. The same first player will have the option to end the game and bring everyone back to the landing page.
 
 ___
->>>>>>> twytwy-branch
 
 ## Setup
 
@@ -55,6 +44,8 @@ Before running or deploying this application, install the dependencies using
 [pip](http://pip.readthedocs.io/en/stable/):
 
     pip install -t lib -r requirements.txt
+
+___
 
 ## Application
 
