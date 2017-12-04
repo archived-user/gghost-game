@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block head %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='error.js') }}"></script>
+  <script>
+    displayError('{{ code }}');
+  </script>
+{% endblock %}
+
+{% block notify %}
+  <div style='position: absolute; left: 50%; z-index: 10;'>
+    <div id='notice' class=error hidden='true'></div>
+  </div>
+{% endblock %}  
+
+{% block body %}
+  <h2 style="font-family: 'Creepster', cursive">Login</h2>
+  <form action="{{ url_for('login', err='0') }}" method=post>
+    <dl>
+      <dt>Username&nbsp;<input class=textbox type=text name=username value="{{ username }}" required></dt>
+      <br/>
+      <dt>Game ID &nbsp&nbsp;<input class=textbox type=text name=gid value="{{ gid }}" required></dt>
+    </dl>
+    <dl>
+      <dt>Majority Word &nbsp;<input class=textbox type=text name=major value="{{ major }}" required></dt>
+      <br/>
+      <dt>Minority Word &nbsp;<input class=textbox type=text name=minor value="{{ minor }}" required></dt>
+      <br/>
+      <div class=tooltip><u class="dotted">Difficulty:</u>
+        <span class="tooltiptext">your starting position when you are the ghost</span>
+      </div>
+      <dt>(Hard-0, Easy-9) &nbsp;
+        <input class=textbox type=number name=diff value="{{ diff }}" 
+               maxlength="1" min="0" max="9" required></dt>
+    </dl>
+    <div class=metanav>
+      <input class="button defb" type=submit value=Join Game>
+    </div>
+    
+    <br/>
+    <div style="text-align: center">
+      <a href="https://www.freepik.com/free-vector/cute-ghost-pattern_804638.htm" ><font size='-1'>Background Designed by Freepik</font></a>
+      <br/>
+      <a href="https://www.dreamstime.com/" ><font size='-1'>Images by Dreamstime</font></a>
+      <br/>
+      <a href="https://fonts.google.com/" ><font size='-1'>Google Fonts: Nosifer & Creepster</font></a>
+    </div>
+  </form>
+{% endblock %}

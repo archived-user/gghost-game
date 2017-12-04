@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <meta property="og:url" content="https://gghost-game.appspot.com/"/>
+    <meta property="og:title" content="GGhost Game"/>
+    <meta property="og:description" content="Party game for 6 to 10 players."/>
+    <meta property="og:site_name" content="twytwy"/>
+    <meta property="og:image" content="https://gghost-game.appspot.com/static/ghosts.jpg"/>
+    
+    {% include "_firebase_config.html" %}
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}"/>
+    {% block head %}{% endblock %}
+    <title>GGHOST</title>
+  </head>
+  <body>
+    {% block notify %}{% endblock %}
+    <div class=page>
+      <br/>
+      <h1 style="font-family: 'Nosifer', cursive">GGHOST</h1>
+      {% block body %}{% endblock %}
+      <div style="text-align: center">
+        <font color="white" size='-1'>Created by twytwy :D</font>
+      </div>
+    </div>
+  </body>
+</html>

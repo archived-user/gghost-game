@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block head %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='game.js') }}"></script>
+  <script>
+    initGame('{{ me }}', '{{ channel_id }}', '{{ first }}', '{{ url }}');
+  </script>
+{% endblock %}
+
+{% block notify %}
+  <div style='position: absolute; left: 50%; z-index: 10;'>
+    <div class="error started" id="emptybutton">Insufficient Players!</div>
+  </div>
+{% endblock %}  
+
+{% block body %}
+  <br/>
+  <h2 style="font-family: 'Creepster', cursive" id="infoheader"></h2>
+  <div id="info"></div>
+  <br/>
+  <h2 style="font-family: 'Creepster', cursive" id="header">Waiting for Players</h2>
+  <br/>
+  <div id="lobbylist"></div>
+  <br/>
+  
+  <div class=metanav >
+    <form class="started" hidden="true" action="{{ url_for('start') }}" method="get" id="startbutton">
+      <input class="button grb" type="submit" value="Start Game" />
+      <br/>
+    </form>
+    <form hidden="true" action="{{ url_for('login', err='0') }}" method="get" id="endbutton">
+      <input class="button rb" type="submit" value="End Game" />
+    </form>
+    <form class="started" action="{{ url_for('login', err='0') }}" method="get" id="quitbutton">
+      <input class="button defb" type="submit" value="Leave Game" />
+    </form>
+    <!-- <form action="{{ url_for('start') }}" method="get" id="testbutton">
+      <input type="submit" value="Start Game" />
+    </form> -->
+  
+  </div>
+{% endblock %}
