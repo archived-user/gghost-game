@@ -1,0 +1,42 @@
+#  Gcloud App Deploy Skipped Files
+#
+#  The gae-test-skip-files.py is a helpful script to list
+#  the files that will be skipped based on the instructions in
+#  app.yaml, without actually deploying the code into gcloud.
+#  Check the code for instructions to run.
+#  (you may need to install pyyaml)
+
+
+#  Interactive Console
+#
+#  Testing the app on gcloud dev_appserver.py allows you to run code
+#  on the same environment as your app through the Interactive Console.
+#  The code below is specific to the gghost app:
+#  it creates new Player objects and write all the changes into
+#  the development instance's datastore.
+
+from google.appengine.ext import ndb
+
+class Player(ndb.Model):
+    # instance id = username
+    major = ndb.StringProperty()
+    minor = ndb.StringProperty()
+    role = ndb.StringProperty(default="major")
+    diff = ndb.IntegerProperty(default=9)
+    
+class Game(ndb.Model):
+    # instance id = gid
+    player1 = ndb.StringProperty(default=None)
+    players = ndb.StringProperty(repeated=True)
+    started = ndb.BooleanProperty(default=False)
+
+game = Game.get_by_id("abcd")
+newpeeps = ("2nd","3rd","4th","5th","6th","7th","8th","9th","1010")
+if game:
+    game.players.extend(newpeeps)
+    game.put()
+    for username in newpeeps:
+        player = Player(id=username, major="Maj-" + username, minor="Min-"+username)
+        player.put()
+    print "Added new players!
+    print "Current players list", game.players
